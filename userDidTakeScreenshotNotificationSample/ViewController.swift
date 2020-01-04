@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     }
 
     @objc private func didTakeScreenCaptured(_ notification: Notification) {
-        button.isHidden = UIScreen.main.isCaptured
+        button.isHidden = true
     }
 
 
