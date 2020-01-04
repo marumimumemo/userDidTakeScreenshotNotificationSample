@@ -9,10 +9,22 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var button:UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(didTakeScreenCaptured(_:)),
+            name: UIApplication.userDidTakeScreenshotNotification,
+            object: nil
+        )
+    }
+
+    @objc private func didTakeScreenCaptured(_ notification: Notification) {
+        button.isHidden = UIScreen.main.isCaptured
     }
 
 
